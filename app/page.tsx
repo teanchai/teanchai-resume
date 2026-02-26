@@ -1,12 +1,28 @@
 "use client";
 
-import { FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaTimes, FaUser, FaFolderOpen, FaBriefcase } from 'react-icons/fa';
-import Image from 'next/image';
-import { useState } from 'react';
+import {
+  FaLinkedin,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaTimes,
+  FaUser,
+  FaFolderOpen,
+  FaBriefcase,
+  FaClock,
+  FaDownload,
+} from "react-icons/fa";
+import Image from "next/image";
+import { useState } from "react";
+import { BiLocationPlus } from "react-icons/bi";
+import { CiLocationOn } from "react-icons/ci";
+import { FaLocationDot } from "react-icons/fa6";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTab, setSelectedTab] = useState<'resume' | 'projects'>('resume');
+  const [selectedTab, setSelectedTab] = useState<"resume" | "projects">(
+    "resume",
+  );
   // Add state for certificate modal
   const [isCertModalOpen, setIsCertModalOpen] = useState(false);
 
@@ -18,7 +34,7 @@ export default function Home() {
           <div className="text-center">
             {/* Profile Image */}
             <div className="flex justify-center mb-6">
-              <div 
+              <div
                 className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-blue-100 shadow-lg group cursor-pointer transition-transform duration-300 hover:scale-110 hover:shadow-xl"
                 onClick={() => setIsModalOpen(true)}
               >
@@ -31,10 +47,13 @@ export default function Home() {
                 />
               </div>
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Teanchai Singkhamkoon</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              Teanchai Singkhamkoon
+            </h1>
             <p className="text-xl text-gray-600 mb-4">Full Stack Developer</p>
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              Full Stack Developer with {(() => {
+              Full Stack Developer with{" "}
+              {(() => {
                 // Calculate total experience from all roles
                 const onelink = 5; // March 2017 - July 2017 (5 months)
                 const mbSystem = 22; // August 2017 - May 2019 (1 year 10 months = 22 months)
@@ -42,12 +61,17 @@ export default function Home() {
                 const scgc = (() => {
                   const start = new Date(2023, 6, 1); // July 2023
                   const now = new Date();
-                  return (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+                  return (
+                    (now.getFullYear() - start.getFullYear()) * 12 +
+                    (now.getMonth() - start.getMonth())
+                  );
                 })();
                 const totalMonths = onelink + mbSystem + celestica + scgc;
                 const years = Math.ceil(totalMonths / 12);
                 return years;
-              })()} years of experience in .NET Framework, delivering innovative solutions for enterprise-level clients.
+              })()}{" "}
+              years of experience in .NET Framework, delivering innovative
+              solutions for enterprise-level clients.
             </p>
             {/* Contact Information */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -61,15 +85,18 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2">
                 <FaEnvelope className="text-blue-600" />
-                <a href="mailto:teanchai.skk@gmail.com" className="hover:text-blue-600 transition-colors">
+                <a
+                  href="mailto:teanchai.skk@gmail.com"
+                  className="hover:text-blue-600 transition-colors"
+                >
                   teanchai.skk@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <FaLinkedin className="text-blue-600" />
-                <a 
-                  href="https://www.linkedin.com/in/teanchai-singkhamkoon" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/teanchai-singkhamkoon"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue-600 transition-colors"
                 >
@@ -85,14 +112,14 @@ export default function Home() {
       <nav className="max-w-4xl mx-auto px-6 mt-2">
         <div className="flex border-b border-gray-200">
           <button
-            className={`flex items-center gap-2 px-6 py-3 font-semibold text-base focus:outline-none transition-colors border-b-2 ${selectedTab === 'resume' ? 'border-blue-600 text-blue-600 bg-blue-50' : 'border-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50'}`}
-            onClick={() => setSelectedTab('resume')}
+            className={`flex items-center gap-2 px-6 py-3 font-semibold text-base focus:outline-none transition-colors border-b-2 ${selectedTab === "resume" ? "border-blue-600 text-blue-600 bg-blue-50" : "border-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50"}`}
+            onClick={() => setSelectedTab("resume")}
           >
             <FaUser className="w-5 h-5" /> My Journey
           </button>
           <button
-            className={`flex items-center gap-2 px-6 py-3 font-semibold text-base focus:outline-none transition-colors border-b-2 ${selectedTab === 'projects' ? 'border-blue-600 text-blue-600 bg-blue-50' : 'border-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50'}`}
-            onClick={() => setSelectedTab('projects')}
+            className={`flex items-center gap-2 px-6 py-3 font-semibold text-base focus:outline-none transition-colors border-b-2 ${selectedTab === "projects" ? "border-blue-600 text-blue-600 bg-blue-50" : "border-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50"}`}
+            onClick={() => setSelectedTab("projects")}
           >
             <FaFolderOpen className="w-5 h-5" /> Project Reference
           </button>
@@ -101,15 +128,18 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 py-8">
-        {selectedTab === 'resume' ? (
+        {selectedTab === "resume" ? (
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Summary */}
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Summary</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Summary
+                </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Passionate and detail-oriented Full Stack Developer with over {(() => {
+                  Passionate and detail-oriented Full Stack Developer with over{" "}
+                  {(() => {
                     // Calculate total experience from all roles
                     const onelink = 5; // March 2017 - July 2017 (5 months)
                     const mbSystem = 22; // August 2017 - May 2019 (1 year 10 months = 22 months)
@@ -117,28 +147,72 @@ export default function Home() {
                     const scgc = (() => {
                       const start = new Date(2023, 6, 1); // July 2023
                       const now = new Date();
-                      return (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+                      return (
+                        (now.getFullYear() - start.getFullYear()) * 12 +
+                        (now.getMonth() - start.getMonth())
+                      );
                     })();
                     const totalMonths = onelink + mbSystem + celestica + scgc;
                     const years = Math.ceil(totalMonths / 12);
                     return years;
-                  })()} years of experience building modern, responsive, and scalable web applications. Proficient in both frontend and backend technologies with a strong focus on performance optimization, cloud infrastructure, and team collaboration. Adept at transforming complex requirements into user-friendly digital solutions.
+                  })()}{" "}
+                  years of experience building modern, responsive, and scalable
+                  web applications. Proficient in both frontend and backend
+                  technologies with a strong focus on performance optimization,
+                  cloud infrastructure, and team collaboration. Adept at
+                  transforming complex requirements into user-friendly digital
+                  solutions.
                 </p>
               </section>
 
               {/* Experience */}
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Professional Experience</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Professional Experience
+                </h2>
                 <div className="space-y-6">
                   {/* SCGC */}
                   <div className="bg-white p-6 rounded-lg shadow-sm border">
                     <div className="flex items-center gap-3 mb-2">
-                      <Image src="/scgchemicals_logo.jpeg" alt="SCGC Logo" width={32} height={32} className="rounded bg-white border" />
+                      <Image
+                        src="/scgchemicals_logo.jpeg"
+                        alt="SCGC Logo"
+                        width={32}
+                        height={32}
+                        className="rounded bg-white border"
+                      />
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Full-stack Developer</h3>
+                        <h3 className="text-xl font-semibold text-gray-900">
+                          Full-stack Developer
+                        </h3>
                         <div className="flex items-center gap-2 text-blue-600 font-medium text-sm">
-                          <span>SCGC-SCG Chemicals</span>
-                          <span className="text-gray-400">·</span>
+                          <FaClock className="inline-block text-gray-400" />
+                          <span>
+                            July 2023 - Present (
+                            {(() => {
+                              const start = new Date(2023, 6, 1);
+                              const now = new Date();
+                              const totalMonths =
+                                (now.getFullYear() - start.getFullYear()) * 12 +
+                                (now.getMonth() - start.getMonth());
+                              const years = Math.floor(totalMonths / 12);
+                              const months = totalMonths % 12;
+                              const yearStr =
+                                years > 0
+                                  ? `${years} Year${years > 1 ? "s" : ""}`
+                                  : "";
+                              const monthStr =
+                                months > 0
+                                  ? `${months} month${months > 1 ? "s" : ""}`
+                                  : "";
+                              return [yearStr, monthStr]
+                                .filter(Boolean)
+                                .join(" ");
+                            })()}
+                            )
+                          </span>
+                          <FaLocationDot className="inline-block text-gray-400" />
+                          <span>SCG Chemicals</span>
                           <FaBriefcase className="inline-block text-gray-400" />
                           <span>Hybrid</span>
                         </div>
@@ -147,23 +221,43 @@ export default function Home() {
                     <ul className="text-gray-700 space-y-2">
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Enhanced and maintained the employee profile system for over 5000 SCGC employees, handling large datasets integrated from SAP, focusing on HR technology solutions.</span>
+                        <span>
+                          Enhanced and maintained the employee profile system
+                          for over 5000 SCGC employees, handling large datasets
+                          integrated from SAP, focusing on HR technology
+                          solutions.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Developed and implemented a web application for annual KPI and leadership/functional competency assessments, including a dashboard for displaying results for both employees and managers.</span>
+                        <span>
+                          Developed and implemented a web application for annual
+                          KPI and leadership/functional competency assessments,
+                          including a dashboard for displaying results for both
+                          employees and managers.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Designed and implemented cloud-based microservices architecture with .NET Core & Node.js.</span>
+                        <span>
+                          Designed and implemented cloud-based microservices
+                          architecture with .NET Core & Node.js.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Developed an internal dashboard system using React.js & Ant Design, enhancing data visualization for key stakeholders.</span>
+                        <span>
+                          Developed an internal dashboard system using React.js
+                          & Ant Design, enhancing data visualization for key
+                          stakeholders.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Optimized database queries, improving response time by 50% in high-traffic applications.</span>
+                        <span>
+                          Optimized database queries, improving response time by
+                          50% in high-traffic applications.
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -171,12 +265,22 @@ export default function Home() {
                   {/* Celestica */}
                   <div className="bg-white p-6 rounded-lg shadow-sm border">
                     <div className="flex items-center gap-3 mb-2">
-                      <Image src="/celestica_logo.jpeg" alt="Celestica Logo" width={32} height={32} className="rounded bg-white border" />
+                      <Image
+                        src="/celestica_logo.jpeg"
+                        alt="Celestica Logo"
+                        width={32}
+                        height={32}
+                        className="rounded bg-white border"
+                      />
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Full-stack Developer</h3>
+                        <h3 className="text-xl font-semibold text-gray-900">
+                          Full-stack Developer
+                        </h3>
                         <div className="flex items-center gap-2 text-blue-600 font-medium text-sm">
+                          <FaClock className="inline-block text-gray-400" />
+                          <span>July 2019 - June 2023</span>
+                          <FaLocationDot className="inline-block text-gray-400" />
                           <span>Celestica</span>
-                          <span className="text-gray-400">·</span>
                           <FaBriefcase className="inline-block text-gray-400" />
                           <span>Hybrid</span>
                         </div>
@@ -185,19 +289,31 @@ export default function Home() {
                     <ul className="text-gray-700 space-y-2">
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Led the development of enterprise manufacturing automation software, improving operational efficiency.</span>
+                        <span>
+                          Led the development of enterprise manufacturing
+                          automation software, improving operational efficiency.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Supported development of supply chain management applications.</span>
+                        <span>
+                          Supported development of supply chain management
+                          applications.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Helped migrate legacy systems to modern cloud-based infrastructure.</span>
+                        <span>
+                          Helped migrate legacy systems to modern cloud-based
+                          infrastructure.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Participated in planning and code reviews across multiple project teams.</span>
+                        <span>
+                          Participated in planning and code reviews across
+                          multiple project teams.
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -205,12 +321,22 @@ export default function Home() {
                   {/* M.B. System */}
                   <div className="bg-white p-6 rounded-lg shadow-sm border">
                     <div className="flex items-center gap-3 mb-2">
-                      <Image src="/m_b_system_automation_logo.jpeg" alt="M.B. System Logo" width={32} height={32} className="rounded bg-white border" />
+                      <Image
+                        src="/m_b_system_automation_logo.jpeg"
+                        alt="M.B. System Logo"
+                        width={32}
+                        height={32}
+                        className="rounded bg-white border"
+                      />
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Software Developer</h3>
+                        <h3 className="text-xl font-semibold text-gray-900">
+                          Software Developer
+                        </h3>
                         <div className="flex items-center gap-2 text-blue-600 font-medium text-sm">
-                          <span>M.B. System Automation Co., Ltd.</span>
-                          <span className="text-gray-400">·</span>
+                          <FaClock className="inline-block text-gray-400" />
+                          <span>August 2017 - May 2019</span>
+                          <FaLocationDot className="inline-block text-gray-400" />
+                          <span>MBSA. Co., Ltd.</span>
                           <FaBriefcase className="inline-block text-gray-400" />
                           <span>Full-time</span>
                         </div>
@@ -219,15 +345,23 @@ export default function Home() {
                     <ul className="text-gray-700 space-y-2">
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Modernized internal systems from ASP.NET VB6 to Angular and GraphQL.</span>
+                        <span>
+                          Modernized internal systems from ASP.NET VB6 to
+                          Angular and GraphQL.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Focused on UI/UX and frontend enhancements for business users.</span>
+                        <span>
+                          Focused on UI/UX and frontend enhancements for
+                          business users.
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Worked on API integrations with external systems.</span>
+                        <span>
+                          Worked on API integrations with external systems.
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -235,12 +369,22 @@ export default function Home() {
                   {/* Onelink */}
                   <div className="bg-white p-6 rounded-lg shadow-sm border">
                     <div className="flex items-center gap-3 mb-2">
-                      <Image src="/onelink.jpeg" alt="Onelink Logo" width={32} height={32} className="rounded bg-white border" />
+                      <Image
+                        src="/onelink.jpeg"
+                        alt="Onelink Logo"
+                        width={32}
+                        height={32}
+                        className="rounded bg-white border"
+                      />
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Software Developer</h3>
+                        <h3 className="text-xl font-semibold text-gray-900">
+                          Software Developer
+                        </h3>
                         <div className="flex items-center gap-2 text-blue-600 font-medium text-sm">
+                          <FaClock className="inline-block text-gray-400" />
+                          <span>March 2017 - July 2017</span>
+                          <FaLocationDot className="inline-block text-gray-400" />
                           <span>Onelink Technology</span>
-                          <span className="text-gray-400">·</span>
                           <FaBriefcase className="inline-block text-gray-400" />
                           <span>Full-time</span>
                         </div>
@@ -249,7 +393,9 @@ export default function Home() {
                     <ul className="text-gray-700 space-y-2">
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 mt-1">•</span>
-                        <span>Built custom web applications for internal use.</span>
+                        <span>
+                          Built custom web applications for internal use.
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -261,63 +407,119 @@ export default function Home() {
             <div className="space-y-8">
               {/* Core Competencies */}
               <section className="bg-white p-6 rounded-lg shadow-sm border">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Core Competencies</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                  Core Competencies
+                </h2>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Frontend</h3>
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Frontend
+                    </h3>
                     <div className="flex flex-wrap gap-2">
-                      {['React.js', 'TypeScript', 'Angular', 'Next.js', 'Redux', 'Ant Design'].map((skill) => (
-                        <span key={skill} className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
+                      {[
+                        "React.js",
+                        "TypeScript",
+                        "Angular",
+                        "Next.js",
+                        "Redux",
+                        "Ant Design",
+                      ].map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
+                        >
                           {skill}
                         </span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Backend</h3>
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Backend
+                    </h3>
                     <div className="flex flex-wrap gap-2">
-                      {['.NET Core', 'Node.js', 'GraphQL', 'REST APIs'].map((skill) => (
-                        <span key={skill} className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">
+                      {[".NET Core", "Node.js", "GraphQL", "REST APIs"].map(
+                        (skill) => (
+                          <span
+                            key={skill}
+                            className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full"
+                          >
+                            {skill}
+                          </span>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Cloud & DevOps
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "Azure",
+                        "AWS (basic)",
+                        "Docker",
+                        "CI/CD pipelines",
+                      ].map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full"
+                        >
                           {skill}
                         </span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Cloud & DevOps</h3>
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Database
+                    </h3>
                     <div className="flex flex-wrap gap-2">
-                      {['Azure', 'AWS (basic)', 'Docker', 'CI/CD pipelines'].map((skill) => (
-                        <span key={skill} className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">
+                      {["SQL Server", "PostgreSQL", "MongoDB"].map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full"
+                        >
                           {skill}
                         </span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Database</h3>
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Other Skills
+                    </h3>
                     <div className="flex flex-wrap gap-2">
-                      {['SQL Server', 'PostgreSQL', 'MongoDB'].map((skill) => (
-                        <span key={skill} className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">
+                      {[
+                        "Git",
+                        "Agile/Scrum",
+                        "Jira",
+                        "Postman",
+                        "System Design",
+                      ].map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full"
+                        >
                           {skill}
                         </span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Other Skills</h3>
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Soft Skills
+                    </h3>
                     <div className="flex flex-wrap gap-2">
-                      {['Git', 'Agile/Scrum', 'Jira', 'Postman', 'System Design'].map((skill) => (
-                        <span key={skill} className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Soft Skills</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {['Mentoring', 'Code Review', 'Cross-functional Collaboration'].map((skill) => (
-                        <span key={skill} className="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">
+                      {[
+                        "Mentoring",
+                        "Code Review",
+                        "Cross-functional Collaboration",
+                      ].map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full"
+                        >
                           {skill}
                         </span>
                       ))}
@@ -327,10 +529,16 @@ export default function Home() {
               </section>
               {/* Education */}
               <section className="bg-white p-6 rounded-lg shadow-sm border">
-                <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">Education</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  Education
+                </h2>
                 <div>
-                  <h3 className="font-semibold text-gray-800">Bachelor&apos;s degree, Computer Engineering</h3>
-                  <p className="text-blue-600">Suranaree University of Technology</p>
+                  <h3 className="font-semibold text-gray-800">
+                    Bachelor&apos;s degree, Computer Engineering
+                  </h3>
+                  <p className="text-blue-600">
+                    Suranaree University of Technology
+                  </p>
                   <p className="text-gray-600 text-sm">2013-2017</p>
                 </div>
                 <div className="mt-4">
@@ -347,8 +555,16 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center min-h-[300px] text-gray-500 text-lg">
-            <span>Project Reference section coming soon...</span>
+          <div className="flex flex-col items-center justify-center min-h-[300px] text-gray-500 text-lg space-y-6">
+            <a
+              href="/Teanchai%20Singkhamkoon%20-%20Project%20Reference.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+            >
+              <FaDownload className="w-5 h-5" />
+              Download Project Reference PDF
+            </a>
           </div>
         )}
       </main>
