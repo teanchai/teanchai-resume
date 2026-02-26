@@ -185,30 +185,7 @@ export default function Home() {
                         </h3>
                         <div className="flex items-center gap-2 text-blue-600 font-medium text-sm">
                           <FaClock className="inline-block text-gray-400" />
-                          <span>
-                            July 2023 - Present (
-                            {(() => {
-                              const start = new Date(2023, 6, 1);
-                              const now = new Date();
-                              const totalMonths =
-                                (now.getFullYear() - start.getFullYear()) * 12 +
-                                (now.getMonth() - start.getMonth());
-                              const years = Math.floor(totalMonths / 12);
-                              const months = totalMonths % 12;
-                              const yearStr =
-                                years > 0
-                                  ? `${years} Year${years > 1 ? "s" : ""}`
-                                  : "";
-                              const monthStr =
-                                months > 0
-                                  ? `${months} month${months > 1 ? "s" : ""}`
-                                  : "";
-                              return [yearStr, monthStr]
-                                .filter(Boolean)
-                                .join(" ");
-                            })()}
-                            )
-                          </span>
+                          <span>July 2023 - Present</span>
                           <FaLocationDot className="inline-block text-gray-400" />
                           <span>SCG Chemicals</span>
                           <FaBriefcase className="inline-block text-gray-400" />
