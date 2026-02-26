@@ -14,8 +14,6 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from "react";
-import { BiLocationPlus } from "react-icons/bi";
-import { CiLocationOn } from "react-icons/ci";
 import { FaLocationDot } from "react-icons/fa6";
 
 export default function Home() {
