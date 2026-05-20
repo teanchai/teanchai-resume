@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Teanchai Singkhamkoon - Full Stack Developer",
-  description: "Full Stack Developer with 9 years of experience in .NET Framework, React.js, and Node.js. Specialized in enterprise-level solutions and HR technology.",
+  description:
+    "Full Stack Developer specializing in .NET Framework, React.js, Node.js, enterprise-level solutions, and HR technology.",
 };
 
 export default function RootLayout({
@@ -52,8 +53,8 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         {children}
-        <footer className="w-full border-t bg-white py-2 mt-8">
-          <div className="max-w-4xl mx-auto flex flex-col items-center gap-1 text-gray-400 text-xs">
+        <footer className="w-full border-t border-zinc-200 bg-white py-6">
+          <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-5 text-xs text-zinc-500 sm:px-8">
             <div>
               © {new Date().getFullYear()} Teanchai Singkhamkoon. All rights reserved.
             </div>
