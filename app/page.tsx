@@ -96,13 +96,13 @@ const contacts: ContactItem[] = [
 const highlights = [
   { label: "Experience", value: "Enterprise applications" },
   { label: "Specialty", value: "Business process automation" },
-  { label: "Strength", value: "Full-stack delivery" },
+  { label: "Strength", value: "End-to-end delivery" },
 ];
 
 const experiences: Experience[] = [
   {
     company: "SCGC-SCG Chemicals",
-    role: "Full-stack Developer",
+    role: "Software Engineer",
     mode: "Hybrid",
     logo: "/scgchemicals_logo.jpeg",
     logoAlt: "SCGC Logo",
@@ -117,7 +117,7 @@ const experiences: Experience[] = [
   },
   {
     company: "Celestica",
-    role: "Full-stack Developer",
+    role: "Software Engineer",
     mode: "Hybrid",
     logo: "/celestica_logo.jpeg",
     logoAlt: "Celestica Logo",
@@ -157,7 +157,7 @@ const skillGroups: SkillGroup[] = [
   {
     title: "Frontend",
     icon: FaCode,
-    skills: ["React.js", "TypeScript", "Angular", "Next.js", "Redux", "Ant Design"],
+    skills: ["React.js", "TypeScript", "Next.js", "Redux", "Ant Design"],
   },
   {
     title: "Backend",
@@ -197,7 +197,7 @@ export default function Home() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-sm font-medium text-teal-800">
               <FaBriefcase className="h-3.5 w-3.5" />
-              Full Stack Developer
+              Software Engineer
             </div>
 
             <h1 className="max-w-3xl text-4xl font-semibold tracking-normal text-zinc-950 sm:text-5xl">
@@ -205,9 +205,9 @@ export default function Home() {
             </h1>
 
             <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-700">
-              Full Stack Developer with {experienceYears} years of experience in
-              .NET Framework, delivering innovative solutions for enterprise-level
-              clients.
+              Software Engineer with full-stack experience and {experienceYears}{" "}
+              years of experience in .NET Framework, delivering innovative
+              software solutions for enterprise-level clients.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -306,12 +306,13 @@ export default function Home() {
               Enterprise software delivery across web, data, and cloud systems
             </h2>
             <p className="mt-4 text-base leading-8 text-zinc-700">
-              Passionate and detail-oriented Full Stack Developer with over{" "}
+              Passionate and detail-oriented Software Engineer with over{" "}
               {experienceYears} years of experience building modern, responsive,
-              and scalable web applications. Proficient in both frontend and
-              backend technologies with a strong focus on performance optimization,
+              and scalable web applications across frontend, backend, database,
+              and deployment layers. Strong focus on performance optimization,
               cloud infrastructure, and team collaboration. Adept at transforming
-              complex requirements into user-friendly digital solutions.
+              complex requirements into maintainable, user-friendly digital
+              solutions.
             </p>
           </section>
 

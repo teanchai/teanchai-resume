@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Teanchai Singkhamkoon - Full Stack Developer",
+  title: "Teanchai Singkhamkoon - Software Engineer",
   description:
-    "Full Stack Developer specializing in .NET Framework, React.js, Node.js, enterprise-level solutions, and HR technology.",
+    "Software Engineer with full-stack experience in .NET Framework, React.js, Node.js, enterprise-level solutions, and HR technology.",
 };
 
 export default function RootLayout({
